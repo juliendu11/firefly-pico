@@ -16,8 +16,8 @@
 
     <div class="applied-filters-container" v-if="filtersDisplayList.length > 0">
       <div class="flex-center-vertical">
-        <div class="title flex-1">Applied filters</div>
-        <van-button @click="onClearFilters" size="small" class=""> Clear</van-button>
+        <div class="title flex-1">{{ t('label.applied_filters') }}</div>
+        <van-button @click="onClearFilters" size="small" class=""> {{ t('label.clear') }}</van-button>
       </div>
 
       <div class="display-flex flex-wrap gap-1">
@@ -62,6 +62,7 @@ import { get, isEqual } from 'lodash'
 
 const dataStore = useDataStore()
 const route = useRoute()
+const {t} = useI18n()
 
 const transactionFiltersRef = ref(null)
 
@@ -79,7 +80,7 @@ const onCustomGetAll = async ({ page, pageSize }) => {
 }
 
 const { title, isLoading, isFinished, isRefreshing, page, pageSize, totalPages, listTotalCount, list, isEmpty, listPagination, onAdd, onEdit, onDelete, onLoadMore, onRefresh } = useList({
-  title: 'Transactions list',
+  title: t('transactions_page.title'),
   routeList: RouteConstants.ROUTE_TRANSACTION_LIST,
   routeForm: RouteConstants.ROUTE_TRANSACTION_ID,
   model: new Transaction(),
@@ -180,9 +181,9 @@ const onClearFilters = () => {
 
 const toolbar = useToolbar()
 toolbar.init({
-  title: 'Transactions list',
+  title: t('transactions_page.title'),
   // subtitle: 'bla'
-  subtitle: computed(() => `${listTotalCount.value} Items`),
+  subtitle: computed(() => t('transactions_page.sub_title', {number:listTotalCount.value})),
   // backRoute: RouteConstants.ROUTE_EXTRAS,
 })
 

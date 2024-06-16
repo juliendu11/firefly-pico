@@ -1,5 +1,8 @@
 <template>
-  <app-select label="Account type" popupTitle="Select an account type" v-model="modelValue" v-model:showDropdown="showDropdown" :list="list" :columns="1" v-bind="dynamicAttrs" :has-search="false" />
+  <app-select
+    :label="t('accounts.add_form.account_type.label')"
+    :popupTitle="t('accounts.add_form.account_type.popup.title')"
+    v-model="modelValue" v-model:showDropdown="showDropdown" :list="list" :columns="1" v-bind="dynamicAttrs" :has-search="false" />
 </template>
 
 <script setup>
@@ -12,4 +15,5 @@ const modelValue = defineModel()
 const list = Account.typesList()
 
 const showDropdown = ref(null)
+const {t} = useI18n()
 </script>

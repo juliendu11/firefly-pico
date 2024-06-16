@@ -1,8 +1,8 @@
 <template>
   <app-select
-    :label="label"
+    :label="getLabel"
     class=""
-    popupTitle="Select a category"
+    :popupTitle="t('transactions_page.filters_dialog.form.category_type_select.popup.title')"
     v-model="modelValue"
     v-model:showDropdown="showDropdown"
     v-model:search="search"
@@ -43,11 +43,21 @@ const dataStore = useDataStore()
 const attrs = useAttrs()
 const { dynamicAttrs } = useFormAttributes(attrs)
 
+const {t} = useI18n()
+
 const props = defineProps({
   label: {
     type: String,
-    default: 'Category',
+    default: '',
   },
+})
+
+const getLabel = computed(() => {
+  if(!props.label){
+    return t('transactions_page.filters_dialog.form.category_type_select.label')
+  }
+
+  return props.label
 })
 
 const modelValue = defineModel()

@@ -1,7 +1,7 @@
 <template>
   <app-select
-    label="Transaction type"
-    popupTitle="Select a transaction type"
+    :label="t('transactions_page.filters_dialog.form.transaction_type_select.label')"
+    :popupTitle="t('transactions_page.filters_dialog.form.transaction_type_select.popup.title')"
     v-model="modelValue"
     v-model:showDropdown="showDropdown"
     :list="list"
@@ -20,6 +20,8 @@ const attrs = useAttrs()
 const { dynamicAttrs } = useFormAttributes(attrs)
 const modelValue = defineModel()
 const list = Transaction.typesList
+
+const {t} = useI18n()
 
 const showDropdown = ref(null)
 </script>

@@ -1,11 +1,13 @@
 <template>
   <van-cell-group inset style="overflow: auto">
     <div class="van-cell-group-title flex-center-vertical">
-      <div class="flex-1">Todo transactions:</div>
+      <div class="flex-1">{{ t('dashboard_page.todo_transactions.title') }}</div>
 
-      <van-button v-if="dataStore.tagTodo" size="small" @click="onGoToTodos">Todos: {{ dataStore.dashboard.transactionsWithTodo.length }}</van-button>
+      <van-button v-if="dataStore.tagTodo" size="small" @click="onGoToTodos">
+        {{t('dashboard_page.todo_transactions.counter', {number:dataStore.dashboard.transactionsWithTodo.length })}}
+      </van-button>
       <div v-else class="flex-center-vertical gap-1">
-        <span class="text-muted text-size-10 font-weight-400"> No "todo" tag </span>
+        <span class="text-muted text-size-10 font-weight-400"> {{t('messages.no_todo_tag')}} </span>
         <app-tutorial v-bind="TUTORIAL_CONSTANTS.todoTag" />
       </div>
     </div>
@@ -20,6 +22,7 @@ import { TUTORIAL_CONSTANTS } from '~/constants/TutorialConstants.js'
 import { get } from 'lodash'
 
 const dataStore = useDataStore()
+const {t} = useI18n()
 
 const onEditTransaction = async (transaction) => {
   await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_ID}/${transaction.id}`)

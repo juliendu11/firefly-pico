@@ -1,0 +1,220 @@
+{
+  "dashboard_page": {
+    "title": "Tableau de bord",
+    "accounts": {
+      "title": "Solde total :"
+    },
+    "expenses": {
+      "title": "Dépenses cette semaine :"
+    },
+    "expenses_by_tag": {
+      "title": "Dépenses par étiquettes :"
+    },
+    "expenses_by_categories": {
+      "title": "Dépenses par catégories :"
+    },
+    "todo_transactions": {
+      "title": "Transactions à faire :",
+      "counter": "À faire : {number}"
+    }
+  },
+  "transactions_page": {
+    "title": "Liste des transactions",
+    "sub_title": "{number} transactions",
+    "filters_dialog": {
+      "title": "Filtre des transactions",
+      "form": {
+        "description": "Description",
+        "transaction_type_select": {
+          "label": "Type de transaction",
+          "popup": {
+            "title": "Selectionner un type de transaction"
+          }
+        },
+        "category_type_select": {
+          "label": "Catégorie",
+          "popup": {
+            "title": "Selectionner une catégorie"
+          }
+        },
+        "tags_type_select": {
+          "label": "Tags",
+          "popup": {
+            "title": "Selectionner les tags"
+          }
+        },
+        "accounts_select": {
+          "label": "Compte",
+          "popup": {
+            "title": "Selectionner un compte",
+            "personal_account":{
+              "title":  "Comptes personnels"
+            },
+            "expense_account":{
+              "title":  "Comptes de dépenses"
+            }
+          }
+        },
+        "date": {
+          "after": {
+            "label": "Date après"
+          },
+          "before": {
+            "label": "Date avant"
+          },
+          "remove_month": "-1 mois",
+          "current_month": "Ce mois-ci",
+          "add_month": "+1 mois"
+        },
+        "amount_min": {
+          "label": "Montant minimum"
+        },
+        "amount_max": {
+          "label": "Montant maximum"
+        }
+      }
+    },
+    "add_form": {
+      "title": "Ajouter une transaction",
+      "amount_field": {
+        "placeholder": "Montant",
+        "label": "Montant"
+      }
+    },
+    "edit_form": {
+      "title": "Modifier une transaction"
+    },
+    "assistant_form": {
+      "title": "Assistant",
+      "assistant_text": {
+        "placeholder": "Assistant..."
+      }
+    }
+  },
+  "extras_page": {
+    "accounts": {
+      "title": "Comptes"
+    },
+    "categories": {
+      "title": "Categories"
+    },
+    "tags": {
+      "title": "Tags"
+    },
+    "transaction_templates": {
+      "title": "Modèles de transactions"
+    },
+    "exchanges_rate": {
+      "title": "Taux d'échange"
+    }
+  },
+  "settings_page": {
+    "app_config": {
+      "title": "Paramètres de l'application"
+    },
+    "ui_config": {
+      "title": "Préférences de l'interface utilisateur"
+    },
+    "dashboard_config": {
+      "title": "Préférences du tableau de bord"
+    },
+    "date_config": {
+      "title": "Préférences de dates"
+    },
+    "new_transaction_defaults": {
+      "title": "Nouveaux défauts de transaction"
+    },
+    "transaction_config": {
+      "title": "Configuration des transactions"
+    },
+    "about": {
+      "title": "À propos"
+    },
+    "version": "Version: {version}",
+    "new_version": "Version plus récente disponible: {version}"
+  },
+  "accounts_page": {
+    "title": "Liste des comptes"
+  },
+  "label": {
+    "total": "Total",
+    "income": "Revenu",
+    "expense": "Dépense",
+    "transfers": "Transferts",
+    "surplus": "Excédent",
+    "transactions": "Transactions",
+    "days_remaining": "Jours restants",
+    "applied_filters": "Filtres appliqués",
+    "clear": "Effacer",
+    "new": "Ajouter",
+    "no_icon": "No icon",
+    "save": "Sauvegarder",
+    "without": "Sans",
+    "apply_filters": "Appliquer les filtres"
+  },
+  "messages": {
+    "no_todo_tag": "Pas d'étiquette \"à faire\"",
+    "empty_list": "La liste est vide. Ajoutez des entrées avec le bouton en haut à droite."
+  },
+  "navs": {
+    "home": "Accueil",
+    "transactions": "Transactions",
+    "extras": "Extras",
+    "settings": "Paramètres"
+  },
+  "accounts": {
+    "item": {
+      "type": "Type: {type}",
+      "role": "Rôle: {role}"
+    },
+    "type": {
+      "asset": "Actif",
+      "cash": "Espèces",
+      "expense": "Frais",
+      "revenue": "Revenu"
+    },
+    "role": {
+      "default": "Défaut",
+      "shared": "Partagé",
+      "savings": "Économie",
+      "credit_card": "Carte de crédit",
+      "cash": "Espèces"
+    },
+    "add_form": {
+      "description": {
+        "label": "Description"
+      },
+      "icon_select": {
+        "label": "Sélection d'icône",
+        "popup": {
+          "title": "Sélectionner une icône"
+        }
+      },
+      "account_type": {
+        "label": "Type de compte",
+        "popup": {
+          "title": "Sélectionner le type de compte"
+        }
+      },
+      "account_role": {
+        "label": "Rôle du compte",
+        "popup": {
+          "title": "Sélectionner le rôle du compte"
+        }
+      },
+      "include_net_worth": {
+        "label": "Est inclus dans la valeur nette"
+      },
+      "visible_on_dashboard": {
+        "label": "Est visible sur le tableau de bord"
+      }
+    }
+  },
+  "transactions": {
+    "type": {
+      "transfer": "Transfer",
+      "expense": "Dépense",
+      "income": "Revenu"
+    }
+  }
+}

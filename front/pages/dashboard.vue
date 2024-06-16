@@ -26,8 +26,10 @@ import { debounce } from 'lodash/function'
 import UIUtils from '~/utils/UIUtils.js'
 import DashboardTagTotals from '~/components/dashboard/dashboard-tag-totals/dashboard-tag-totals.vue'
 
+const {t} = useI18n()
+
 const toolbar = useToolbar()
-toolbar.init({ title: 'Dashboard' })
+toolbar.init({ title: t('dashboard_page.title') })
 
 const dataStore = useDataStore()
 const appStore = useAppStore()

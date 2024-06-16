@@ -1,0 +1,219 @@
+{
+  "dashboard_page": {
+    "title": "Dashboard",
+    "accounts": {
+      "title": "Total Balance:"
+    },
+    "expenses": {
+      "title": "Expenses this week:"
+    },
+    "expenses_by_tag": {
+      "title": "Expenses by tags:"
+    },
+    "expenses_by_categories": {
+      "title": "Expenses by categories:"
+    },
+    "todo_transactions": {
+      "title": "Todo transactions:",
+      "counter": "Todos: {number}"
+    }
+  },
+  "transactions_page": {
+    "title": "Transactions list",
+    "sub_title": "{number} Items",
+    "filters_dialog": {
+      "title": "Transaction filters",
+      "form": {
+        "description": "Description",
+        "transaction_type_select": {
+          "label": "Transaction type",
+          "popup": {
+            "title": "Select a transaction type"
+          }
+        },
+        "category_type_select": {
+          "label": "Category",
+          "popup": {
+            "title": "Select a category"
+          }
+        },
+        "tags_type_select": {
+          "label": "Tags",
+          "popup": {
+            "title": "Select tags"
+          }
+        },
+        "accounts_select": {
+          "label": "Account",
+          "popup": {
+            "title": "Select an account",
+            "personal_account":{
+              "title":  "Personal accounts"
+            },
+            "expense_account":{
+              "title":  "Expense accounts"
+            }
+          }
+        },
+        "date": {
+          "after": {
+            "label": "Date after"
+          },
+          "before": {
+            "label": "Date before"
+          },
+          "remove_month": "-1 month",
+          "current_month": "This month",
+          "add_month": "+1 month"
+        },
+        "amount_min": {
+          "label": "Amount min"
+        },
+        "amount_max": {
+          "label": "Amount max"
+        }
+      }
+    },
+    "add_form": {
+      "title": "Add transaction",
+      "amount_field": {
+        "placeholder": "Amount",
+        "label": "Amount"
+      }
+    },
+    "edit_form": {
+      "title": "Edit transaction"
+    },
+    "assistant_form": {
+      "title": "Assistant",
+      "assistant_text": {
+        "placeholder": "Assistant..."
+      }
+    }
+  },
+  "extras_page": {
+    "accounts": {
+      "title": "Accounts"
+    },
+    "categories": {
+      "title": "Categories"
+    },
+    "tags": {
+      "title": "Tags"
+    },
+    "transaction_templates": {
+      "title": "Transaction templates"
+    },
+    "exchanges_rate": {
+      "title": "Exchange rates"
+    }
+  },
+  "settings_page": {
+    "app_config": {
+      "title": "App config"
+    },
+    "ui_config": {
+      "title": "UI preferences"
+    },
+    "dashboard_config": {
+      "title": "Dashboard preferences"
+    },
+    "date_config": {
+      "title": "Date preferences"
+    },
+    "new_transaction_defaults": {
+      "title": "New transaction defaults"
+    },
+    "transaction_config": {
+      "title": "Transaction config"
+    },
+    "about": {
+      "title": "About"
+    },
+    "version": "Version: {version}",
+    "new_version": "Newer version available: {version}"
+  },
+  "accounts_page": {
+    "title": "Accounts list"
+  },
+  "label": {
+    "total": "Total",
+    "income": "Income",
+    "expense": "Expense",
+    "transfers": "Transfers",
+    "surplus": "Surplus",
+    "transactions": "Transactions",
+    "days_remaining": "Days remaining",
+    "applied_filters": "Applied filters",
+    "clear": "Clear",
+    "new": "New",
+    "no_icon": "No icon",
+    "without": "Without",
+    "apply_filters": "Apply filters"
+  },
+  "messages": {
+    "no_todo_tag": "No \"todo\" tag",
+    "empty_list": "The list is empty. Add some entries with the top-right button."
+  },
+  "navs": {
+    "home": "Home",
+    "transactions": "Transactions",
+    "extras": "Extras",
+    "settings": "Settings"
+  },
+  "accounts": {
+    "item": {
+      "type": "Type: {type}",
+      "role": "Role: {role}"
+    },
+    "type": {
+      "asset": "Asset",
+      "cash": "Cash",
+      "expense": "Expense",
+      "revenue": "Revenue"
+    },
+    "role": {
+      "default": "Default",
+      "shared": "Shared",
+      "savings": "savings",
+      "credit_card": "Credit card",
+      "cash": "Cash"
+    },
+    "add_form": {
+      "description": {
+        "label": "Description"
+      },
+      "icon_select": {
+        "label": "Icon select",
+        "popup": {
+          "title": "Select an icon"
+        }
+      },
+      "account_type": {
+        "label": "Account type",
+        "popup": {
+          "title": "Select an account type"
+        }
+      },
+      "account_role": {
+        "label": "Account role",
+        "popup": {
+          "title": "Select an account role"
+        }
+      },
+      "include_net_worth": {
+        "label": "Is include in net worth"
+      },
+      "visible_on_dashboard": {
+        "label": "Is visible on Dashboard"
+      }
+    }
+  },
+  "transactions": {
+    "type": {
+      "transfer": "Transfer",
+      "expense": "Expense",
+      "income": "Income"
+    }
+  }
+}

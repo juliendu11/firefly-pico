@@ -1,7 +1,7 @@
 <template>
   <van-cell-group inset style="overflow: auto">
     <div class="flex-center-vertical">
-      <div class="van-cell-group-title">Total balance:</div>
+      <div class="van-cell-group-title">{{ t('dashboard_page.accounts.title') }}</div>
       <div class="flex-1" />
 
       <van-button v-if="hasMultipleCurrencies" @click="onToggleTotalCurrency" size="small" class="mr-10">
@@ -41,7 +41,7 @@
     <div class="flex-center text-size-13 m-10 flex-wrap">
       <div class="flex-center text-size-13 me-1">
         <icon-cash class="text-muted" :size="24" :stroke="1.5" />
-        <span class="font-400 text-muted">Total: </span>
+        <span class="font-400 text-muted">{{ t('label.total')}}</span>
       </div>
 
       <span v-for="(totalValue, totalCurrency) in dataStore.dashboardAccountsTotalByCurrency" class="font-700 ms-1 mx-1 app-select-option-tag">
@@ -64,6 +64,7 @@ import { getFormattedValue } from '~/utils/MathUtils.js'
 
 const appStore = useAppStore()
 const dataStore = useDataStore()
+const {t} = useI18n()
 
 const showHiddenAccounts = ref(false)
 const toggleHiddenAccounts = () => {

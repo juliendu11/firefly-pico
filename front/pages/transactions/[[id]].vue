@@ -140,6 +140,7 @@ const refAmount = ref(null)
 let dataStore = useDataStore()
 let appStore = useAppStore()
 const route = useRoute()
+const {t} = useI18n()
 
 const form = ref(null)
 const showTransactionVoice = ref(false)
@@ -147,8 +148,8 @@ const showTransactionVoice = ref(false)
 
 let { itemId, item, isEmpty, title, addButtonText, isLoading, onClickBack, saveItem, onDelete, onNew, onValidationError } = useForm({
   form: form,
-  titleAdd: 'Add transaction',
-  titleEdit: 'Edit transaction',
+  titleAdd: t('transactions_page.add_form.title'),
+  titleEdit: t('transactions_page.edit_form.title'),
   routeList: RouteConstants.ROUTE_TRANSACTION_LIST,
   routeForm: RouteConstants.ROUTE_TRANSACTION_ID,
   model: new Transaction(),

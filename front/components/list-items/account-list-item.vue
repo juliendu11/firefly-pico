@@ -16,8 +16,12 @@
               <span> {{ displayName }}</span>
             </div>
             <div class="subtitle display-flex flex-wrap gap-2 mt-5">
-              <span class="tag-gray list-item-subtitle" v-if="accountType">Type: {{ accountType }}</span>
-              <span class="tag-gray list-item-subtitle" v-if="accountRole">Role: {{ accountRole }}</span>
+              <span class="tag-gray list-item-subtitle" v-if="accountType">
+                {{ t('accounts.item.type', { type: t(`accounts.type.${accountType.toLowerCase()}`) }) }}
+              </span>
+              <span class="tag-gray list-item-subtitle" v-if="accountRole">
+                {{ t('accounts.item.role', { role: t(`accounts.role.${accountRole.toLowerCase().replace(' ', '_')}`) }) }}
+              </span>
             </div>
           </div>
 
@@ -48,6 +52,7 @@ const props = defineProps({
 const emit = defineEmits(['onEdit', 'onDelete'])
 
 const dataStore = useDataStore()
+const {t} = useI18n()
 
 const displayName = computed(() => _.get(props.value, 'attributes.name', ' - '))
 

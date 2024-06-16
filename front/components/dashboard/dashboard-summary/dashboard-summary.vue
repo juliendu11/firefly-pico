@@ -10,7 +10,7 @@
       <dashboard-summary-card
         @click="onGoToTransactionsByType(Transaction.types.income.code)"
         :icon="TablerIconConstants.dashboardTotalIncomes"
-        title="Income"
+        :title="t('label.income')"
         :subtitle="totalIncomeFormatted"
         subtitleClass="text-success"
       />
@@ -18,7 +18,7 @@
       <dashboard-summary-card
         @click="onGoToTransactionsByType(Transaction.types.expense.code)"
         :icon="TablerIconConstants.dashboardTotalExpenses"
-        title="Expense"
+        :title="t('label.expense')"
         :subtitle="totalExpenseFormatted"
         subtitleClass="text-danger"
       />
@@ -26,16 +26,16 @@
       <dashboard-summary-card
         @click="onGoToTransactionsByType(Transaction.types.transfer.code)"
         :icon="TablerIconConstants.dashboardTotalTransfers"
-        title="Transfers"
+        :title="t('label.transfers')"
         :subtitle="totalTransferFormatted"
         subtitleClass="text-primary"
       />
 
-      <dashboard-summary-card :icon="TablerIconConstants.dashboardTotalSurplus" title="Surplus" :subtitle="totalSurplusFormatted" subtitleClass="" />
+      <dashboard-summary-card :icon="TablerIconConstants.dashboardTotalSurplus" :title="t('label.surplus')" :subtitle="totalSurplusFormatted" subtitleClass="" />
 
-      <dashboard-summary-card :icon="TablerIconConstants.dashboardTransactionsCount" title="Transactions" :subtitle="dataStore.totalTransactionsCount" subtitleClass="" />
+      <dashboard-summary-card :icon="TablerIconConstants.dashboardTransactionsCount" :title="t('label.transactions')" :subtitle="dataStore.totalTransactionsCount" subtitleClass="" />
 
-      <dashboard-summary-card :icon="TablerIconConstants.account" title="Days remaining" :subtitle="remainingDays" />
+      <dashboard-summary-card :icon="TablerIconConstants.account" :title="t('label.days_remaining')" :subtitle="remainingDays" />
     </van-grid>
   </van-cell-group>
 </template>
@@ -47,6 +47,7 @@ import Transaction from '~/models/Transaction.js'
 
 const appStore = useAppStore()
 const dataStore = useDataStore()
+const {t} = useI18n()
 
 const startDate = computed(() => {
   let dateCurrentMonth = startOfDay(new Date()).setDate(appStore.dashboard.firstDayOfMonth)

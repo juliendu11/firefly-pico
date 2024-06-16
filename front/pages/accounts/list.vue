@@ -35,6 +35,7 @@ import TablerIconConstants from '~/constants/TablerIconConstants'
 import AppListSearch from '~/components/ui-kit/theme/app-list-search.vue'
 
 let dataStore = useDataStore()
+const {t} = useI18n()
 
 const onEvent = (event, payload) => {
   if (event === 'onPostDelete') {
@@ -43,7 +44,7 @@ const onEvent = (event, payload) => {
 }
 
 const { isLoading, isFinished, isRefreshing, list, isEmpty, onAdd, onEdit, onDelete } = useList({
-  title: 'Accounts list',
+  title: t('accounts_page.title'),
   routeList: RouteConstants.ROUTE_ACCOUNT_LIST,
   routeForm: RouteConstants.ROUTE_ACCOUNT_ID,
   model: new Account(),
@@ -72,7 +73,7 @@ const accountsGroupList = computed(() => {
   return Object.keys(groupedAccounts)
     .sort()
     .map((typeName) => ({
-      typeName,
+      typeName:t(`accounts.type.${typeName.toLowerCase()}`),
       accounts: groupedAccounts[typeName],
     }))
 })
@@ -105,7 +106,7 @@ const onLoadMore = () => {
 
 const toolbar = useToolbar()
 toolbar.init({
-  title: 'Accounts list',
+  title: t('accounts_page.title'),
   titleIcon: TablerIconConstants.account,
   backRoute: RouteConstants.ROUTE_EXTRAS,
 })

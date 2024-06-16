@@ -3,9 +3,9 @@
     <div>
       <van-field
         v-model="modelValue"
-        placeholder="Amount"
+        :label="t('transactions_page.add_form.amount_field.label')"
         @click="() => input.focus()"
-        label="Amount"
+        :placeholder="t('transactions_page.add_form.amount_field.placeholder')"
         left-icon="peer-pay"
         class="flex-center-vertical app-field transaction-amount-field"
         v-bind="attrs"
@@ -65,6 +65,7 @@ import { evalMath, removeEndOperators, sanitizeAmount } from '~/utils/MathUtils'
 const appStore = useAppStore()
 const dataStore = useDataStore()
 const attrs = useAttrs()
+const {t} = useI18n()
 
 const props = defineProps({
   label: {

@@ -11,7 +11,7 @@
         <app-field
           v-model="name"
           name="Description"
-          label="Description"
+          :label="t('accounts.add_form.description.label')"
           type="textarea"
           rows="1"
           autosize
@@ -21,7 +21,7 @@
           required
         />
 
-        <icon-select v-model="icon" :list="avatarListIcons" />
+        <icon-select v-model="icon" :list="avatarListIcons"  :label="t('accounts.add_form.icon_select.label')"/>
 
         <currency-select v-if="false" v-model="currency" :rules="[{ required: true, message: 'Field is required' }]" required />
 
@@ -29,9 +29,9 @@
 
         <account-role-select v-if="isRoleVisible" v-model="role" :rules="[{ required: true, message: 'Role is required' }]" required />
 
-        <app-boolean v-model="includeNetWorth" label="Is include in net worth" />
+        <app-boolean v-model="includeNetWorth" :label="t('accounts.add_form.include_net_worth.label')" />
 
-        <app-boolean v-model="isDashboardVisible" label="Is visible on Dashboard" />
+        <app-boolean v-model="isDashboardVisible" :label="t('accounts.add_form.visible_on_dashboard.label')" />
       </van-cell-group>
 
       <div style="margin: 16px" class="">
@@ -62,6 +62,7 @@ import { avatarListIcons } from '~/constants/SvgConstants.js'
 let dataStore = useDataStore()
 let appStore = useAppStore()
 const route = useRoute()
+const {t} = useI18n()
 
 const resetFields = () => {
   // name.value = ''

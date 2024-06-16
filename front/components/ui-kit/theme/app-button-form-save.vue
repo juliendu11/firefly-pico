@@ -2,20 +2,30 @@
   <div class="app-button-save flex-center-vertical gap-2" :style="style">
     <slot name="left"></slot>
     <van-button round type="primary" native-type="submit" class="flex-1 shadow-depth2">
-      {{ label }}
+      {{ getLabel }}
     </van-button>
     <slot name="right" />
   </div>
 </template>
 
 <script setup>
+const {t} = useI18n()
+
 const props = defineProps({
   label: {
-    default: 'Save',
+    default: ''
   },
   bottom: {
     default: '70',
   },
+})
+
+const getLabel = computed(() => {
+  if(!props.label){
+    return t('label.save')
+  }
+
+  return props.label
 })
 
 const keyboardOffset = ref(0)

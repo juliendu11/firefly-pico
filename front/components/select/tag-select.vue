@@ -1,9 +1,9 @@
 <template>
   <app-select
-    :label="label"
+    :label="getLabel"
     v-model="modelValue"
     class=""
-    popupTitle="Select tags"
+    :popupTitle="t('transactions_page.filters_dialog.form.tags_type_select.popup.title')"
     v-model:showDropdown="showDropdown"
     v-model:search="search"
     :list="filteredList"
@@ -61,6 +61,8 @@ const { dynamicAttrs } = useFormAttributes(attrs)
 
 const { showTagSelectAsGrid } = storeToRefs(appStore)
 
+const {t} = useI18n()
+
 const props = defineProps({
   label: {
     type: String,
@@ -72,6 +74,14 @@ const props = defineProps({
   autoSelectParents: {
     default: true,
   },
+})
+
+const getLabel = computed(() => {
+  if(!props.label){
+    return t('transactions_page.filters_dialog.form.tags_type_select.label')
+  }
+
+  return props.label
 })
 
 const modelValue = defineModel()

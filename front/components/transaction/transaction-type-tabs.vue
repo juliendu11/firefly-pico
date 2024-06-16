@@ -1,7 +1,7 @@
 <template>
   <div class="transaction-type-container">
     <div @click="onClick(item)" :class="getItemClass(item)" v-for="item in list">
-      <span>{{ item.name }}</span>
+      <span>{{ t(`transactions.type.${item.name.toLowerCase()}`) }}</span>
       <span class="type-indicator"></span>
     </div>
   </div>
@@ -12,6 +12,7 @@ import Transaction from '~/models/Transaction'
 import { isEqual } from 'lodash/lang'
 
 const modelValue = defineModel()
+const {t} = useI18n()
 // const list = ref(['Expense', 'Income', 'Transfer'])
 const list = Transaction.typesList
 

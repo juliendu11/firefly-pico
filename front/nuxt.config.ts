@@ -44,7 +44,19 @@ export default defineNuxtConfig({
   build: {
     // transpile: ['vuetify'],
   },
-  modules: ['@vite-pwa/nuxt', '@nuxtjs/device', '@pinia/nuxt', '@vant/nuxt', 'nuxt-svgo', '@nuxt/eslint'],
+  modules: [
+    '@vite-pwa/nuxt',
+    '@nuxtjs/device',
+    '@pinia/nuxt',
+    '@vant/nuxt',
+    'nuxt-svgo',
+    '@nuxt/eslint',
+    "@nuxtjs/i18n"
+  ],
+
+  i18n: {
+    vueI18n: './plugins/i18n.config.js'
+  },
 
   svgo: {
     defaultImport: 'component',

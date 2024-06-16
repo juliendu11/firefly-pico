@@ -1,7 +1,7 @@
 <template>
   <div class="vant-card flex-column mt-5">
     <div class="vant-card-title flex-center-vertical gap-1">
-      Assistant
+      {{t('transactions_page.assistant_form.title')}}
       <!--      <app-icon icon="svgo-speed1" :size="20"/>-->
       <app-tutorial v-bind="TUTORIAL_CONSTANTS.assistant" />
     </div>
@@ -15,7 +15,7 @@
           v-model="assistantText"
           label=""
           type="textarea"
-          placeholder="Assistant..."
+          :placeholder="t('transactions_page.assistant_form.assistant_text.placeholder')"
           rows="1"
           autosize
           :clearable="true"
@@ -101,6 +101,7 @@ const props = defineProps({})
 
 const dataStore = useDataStore()
 const appStore = useAppStore()
+const {t} = useI18n()
 
 const emit = defineEmits(['change'])
 const show = ref(false)

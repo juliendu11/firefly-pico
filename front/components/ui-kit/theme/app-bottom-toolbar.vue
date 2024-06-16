@@ -1,7 +1,7 @@
 <template>
   <van-tabbar @change="onChange" v-model="activeTab" :safe-area-inset-bottom="true" :fixed="true">
     <van-tabbar-item :name="tabConstants.dashboard" @click="onChange(tabConstants.dashboard)">
-      Home
+      {{ t('navs.home') }}
       <template #icon="{ active }">
         <!--        <IconDeviceDesktopAnalytics />-->
         <app-icon :icon="TablerIconConstants.dashboard" :size="20" :stroke="getStrokeWidth(active)" />
@@ -9,7 +9,7 @@
     </van-tabbar-item>
 
     <van-tabbar-item :name="tabConstants.transactionList" @click="onChange(tabConstants.transactionList)">
-      Transactions
+      {{ t('navs.transactions') }}
       <template #icon="{ active }">
         <app-icon :icon="TablerIconConstants.transaction" :size="20" :stroke="getStrokeWidth(active)" />
       </template>
@@ -22,14 +22,14 @@
     </van-tabbar-item>
 
     <van-tabbar-item :name="tabConstants.extras" @click="onChange(tabConstants.extras)">
-      Extras
+      {{ t('navs.extras') }}
       <template #icon="{ active }">
         <app-icon :icon="TablerIconConstants.extras" :size="20" :stroke="getStrokeWidth(active)" />
       </template>
     </van-tabbar-item>
 
     <van-tabbar-item :name="tabConstants.settings" @click="onChange(tabConstants.settings)" :dot="appStore.isNewVersionAvailable">
-      Settings
+      {{ t('navs.settings') }}
       <template #icon="{ active }">
         <app-icon :icon="TablerIconConstants.settings" :size="20" :stroke="getStrokeWidth(active)" />
       </template>
@@ -46,6 +46,7 @@ import TablerIconConstants from '~/constants/TablerIconConstants'
 const dataStore = useDataStore()
 const appStore = useAppStore()
 const route = useRoute()
+const {t} = useI18n()
 
 const tabConstants = {
   add: 'add',

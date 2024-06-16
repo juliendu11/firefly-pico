@@ -1,6 +1,6 @@
 <template>
   <van-cell-group inset style="overflow: auto">
-    <div class="van-cell-group-title">Expenses by tags:</div>
+    <div class="van-cell-group-title">{{t('dashboard_page.expenses_by_tag.title')}}</div>
     <div class="display-flex flex-column ml-15 mr-15">
       <table>
         <tr v-for="bar in barsList" @click="onClick(bar)">
@@ -33,6 +33,7 @@ import Tag from '~/models/Tag.js'
 import TablerIconConstants from '~/constants/TablerIconConstants.js'
 
 const dataStore = useDataStore()
+const {t} = useI18n()
 
 const barsList = computed(() => {
   const tagTotalDictionary = dataStore.dashboardExpensesByTag

@@ -1,9 +1,11 @@
 <template>
   <van-button size="small" class="add-button">
     <div class="flex-center" style="gap: 3px">
-      <span class="">New</span>
+      <span class="">{{ t('label.new') }}</span>
     </div>
   </van-button>
 </template>
 
-<script setup></script>
+<script setup>
+const {t} = useI18n()
+</script>

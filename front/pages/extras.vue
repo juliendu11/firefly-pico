@@ -3,15 +3,15 @@
     <app-top-toolbar />
 
     <van-cell-group inset style="overflow: auto">
-      <app-field-link label="Accounts" :icon="TablerIconConstants.account" @click="onGoToAccountsList" />
+      <app-field-link :label="t('extras_page.accounts.title')" :icon="TablerIconConstants.account" @click="onGoToAccountsList" />
 
-      <app-field-link label="Categories" :icon="TablerIconConstants.category" @click="onGoToCategoriesList" />
+      <app-field-link :label="t('extras_page.categories.title')" :icon="TablerIconConstants.category" @click="onGoToCategoriesList" />
 
-      <app-field-link label="Tags" :icon="TablerIconConstants.tag" @click="onGoToTagsList" />
+      <app-field-link :label="t('extras_page.tags.title')" :icon="TablerIconConstants.tag" @click="onGoToTagsList" />
 
-      <app-field-link label="Transaction templates" :icon="TablerIconConstants.transactionTemplate" @click="onGoToTransactionTemplatesList" />
+      <app-field-link :label="t('extras_page.transaction_templates.title')" :icon="TablerIconConstants.transactionTemplate" @click="onGoToTransactionTemplatesList" />
 
-      <app-field-link label="Exchange rates" :icon="TablerIconConstants.exchangeRates" @click="navigateTo(RouteConstants.ROUTE_EXCHANGE_RATES)" />
+      <app-field-link  :label="t('extras_page.exchanges_rate.title')" :icon="TablerIconConstants.exchangeRates" @click="navigateTo(RouteConstants.ROUTE_EXCHANGE_RATES)" />
 
       <!--      <app-field-link-->
       <!--          label="Currencies"-->
@@ -29,6 +29,8 @@ import { useAppStore } from '~/stores/appStore'
 import RouteConstants from '~/constants/RouteConstants'
 import { useToolbar } from '~/composables/useToolbar'
 import TablerIconConstants from '~/constants/TablerIconConstants'
+
+const {t} = useI18n()
 
 const onNavigateToCalendar = async () => await navigateTo(RouteConstants.ROUTE_CALENDAR)
 const onNavigateToTransactionTemplate = async () => await navigateTo(RouteConstants.ROUTE_TRANSACTION_TEMPLATE_LIST)

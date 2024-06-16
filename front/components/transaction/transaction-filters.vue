@@ -2,18 +2,25 @@
   <van-popup v-model:show="showDropdown" round position="bottom" :style="style">
     <div class="h-100 display-flex flex-column qqq">
       <div class="flex-center-vertical m-10 mb-0">
-        <div class="flex-1 text-center font-weight-600 text-size-18">Transaction filters</div>
+        <div class="flex-1 text-center font-weight-600 text-size-18">
+          {{ t('transactions_page.filters_dialog.title') }}
+        </div>
       </div>
 
       <div ref="popupContentRef" class="flex-1 flex-column overflow-auto color" style="padding-bottom: 100px">
         <van-form @submit="onApplyFilters">
-          <app-field class="flex-1" v-model="description" label="Description" placeholder="Description" />
+          <app-field
+              class="flex-1"
+              v-model="description"
+              :label="t('transactions_page.filters_dialog.form.description')"
+              :placeholder="t('transactions_page.filters_dialog.form.description')"
+          />
 
           <transaction-type-select v-model="transactionType" />
 
           <div class="display-flex van-cell-fake ps-3 align-items-baseline">
             <div class="display-flex flex-column gap-3 align-items-center">
-              <div class="text-size-14">Without</div>
+              <div class="text-size-14">{{ t('label.without') }}</div>
               <app-checkbox v-model="withoutCategory" shape="square" />
             </div>
 
@@ -22,7 +29,7 @@
 
           <div class="display-flex van-cell-fake ps-3 align-items-baseline">
             <div class="display-flex flex-column gap-3 align-items-center">
-              <div class="text-size-14">Without</div>
+              <div class="text-size-14">{{ t('label.without') }}</div>
               <app-checkbox v-model="withoutTag" shape="square" />
             </div>
 
@@ -32,25 +39,41 @@
           <account-select v-model="account" />
 
           <div class="flex-center-vertical">
-            <app-date class="flex-1" v-model="dateStart" label="Date after" />
+            <app-date class="flex-1" v-model="dateStart" :label="t('transactions_page.filters_dialog.form.date.after.label')" />
 
-            <app-date class="flex-1" v-model="dateEnd" label="Date before" />
+            <app-date class="flex-1" v-model="dateEnd" :label="t('transactions_page.filters_dialog.form.date.before.label')" />
           </div>
 
           <div class="px-3 flex-center-vertical gap-1">
-            <van-button size="small" @click="onSubMonth">-1 month</van-button>
-            <van-button size="small" @click="onCurrentMonth">This month</van-button>
-            <van-button size="small" @click="onAddMonth">+1 month</van-button>
+            <van-button size="small" @click="onSubMonth">
+              {{t('transactions_page.filters_dialog.form.date.remove_month')}}
+            </van-button>
+            <van-button size="small" @click="onCurrentMonth">
+              {{t('transactions_page.filters_dialog.form.date.current_month')}}
+            </van-button>
+            <van-button size="small" @click="onAddMonth">
+              {{t('transactions_page.filters_dialog.form.date.add_month')}}
+            </van-button>
           </div>
 
           <div class="display-flex">
-            <app-field class="flex-1" v-model="amountStart" label="Amount min" placeholder="Amount min" />
-            <app-field class="flex-1" v-model="amountEnd" label="Amount max" placeholder="Amount max" />
+            <app-field
+                class="flex-1"
+                v-model="amountStart"
+                :label="t('transactions_page.filters_dialog.form.amount_min.label')"
+                :placeholder="t('transactions_page.filters_dialog.form.amount_min.label')"
+            />
+            <app-field
+                class="flex-1"
+                v-model="amountEnd"
+                :label="t('transactions_page.filters_dialog.form.amount_max.label')"
+                :placeholder="t('transactions_page.filters_dialog.form.amount_max.label')"
+            />
           </div>
 
-          <app-button-form-save label="Apply filters" bottom="20">
+          <app-button-form-save :label="t('label.apply_filters')" bottom="20">
             <template #left>
-              <van-button v-if="isFiltered" @click="onClearFilters" round> Clear </van-button>
+              <van-button v-if="isFiltered" @click="onClearFilters" round> {{ t('label.clear') }} </van-button>
             </template>
           </app-button-form-save>
         </van-form>
@@ -67,6 +90,7 @@ import { cloneDeep } from 'lodash'
 import { addMonths, endOfMonth, startOfMonth } from 'date-fns'
 
 const modelValue = defineModel({})
+const {t} = useI18n()
 
 const localModelValue = ref({})
 const { description, dateStart, dateEnd, amountStart, amountEnd, category, withoutCategory, tag, withoutTag, account, transactionType } = generateChildren(localModelValue, [

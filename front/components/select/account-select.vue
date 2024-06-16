@@ -1,8 +1,8 @@
 <template>
   <app-select
-    :label="label"
+    :label="getLabel"
     class=""
-    popupTitle="Select an account"
+    :popupTitle="t('transactions_page.filters_dialog.form.accounts_select.popup.title')"
     v-model="modelValue"
     v-model:showDropdown="showDropdown"
     v-model:search="search"
@@ -28,7 +28,9 @@
     <template #popup="{ onSelectCell }">
       <div class="display-flex flex-column h-100">
         <template v-if="showAssets">
-          <span class="account-select-section-title">Personal accounts</span>
+          <span class="account-select-section-title">
+            {{t('transactions_page.filters_dialog.form.accounts_select.popup.personal_account.title')}}
+          </span>
           <van-grid>
             <template v-for="(item, index) in assetAccountList" :key="index">
               <van-grid-item @click="onSelectCell(item)" style="cursor: pointer" :class="getOptionClass(item)">
@@ -40,7 +42,9 @@
           </van-grid>
         </template>
         <template v-if="showExpense">
-          <span class="account-select-section-title">Expense accounts</span>
+          <span class="account-select-section-title">
+            {{t('transactions_page.filters_dialog.form.accounts_select.popup.expense_account.title')}}
+          </span>
           <van-grid>
             <template v-for="(item, index) in expenseAccountList" :key="index">
               <van-grid-item @click="onSelectCell(item)" style="cursor: pointer" :class="getOptionClass(item)">
@@ -91,7 +95,6 @@ const { dynamicAttrs } = useFormAttributes(attrs)
 const props = defineProps({
   label: {
     type: String,
-    default: 'Account',
   },
   allowedTypes: {
     default: () => Account.typesList(),
@@ -105,7 +108,17 @@ const modelValue = defineModel()
 const showDropdown = ref(false)
 const search = ref('')
 
+const {t} = useI18n()
+
 let list = ref([])
+
+const getLabel = computed(() => {
+  if(!props.label){
+    return t('transactions_page.filters_dialog.form.accounts_select.label')
+  }
+
+  return props.label
+})
 
 const accountList = computed(() => {
   if (search.value.length === 0) {

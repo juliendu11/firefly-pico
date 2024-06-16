@@ -1,7 +1,7 @@
 <template>
   <app-select
     :label="label"
-    popupTitle="Select an icon"
+    :popup-title="t('accounts.add_form.icon_select.popup.title')"
     v-model="modelValue"
     v-model:showDropdown="showDropdown"
     v-model:search="search"
@@ -11,7 +11,7 @@
     v-bind="dynamicAttrs"
   >
     <template #input>
-      <div v-if="!modelValue" class="text-muted">No icon</div>
+      <div v-if="!modelValue" class="text-muted">{{t('label.no_icon')}}</div>
       <app-icon v-else :icon="modelValue.icon" style="width: 25px"/>
     </template>
 
@@ -33,6 +33,7 @@ import { avatarListIcons, duoToneListIcons, fluentListIcons } from '~/constants/
 const dataStore = useDataStore()
 const attrs = useAttrs()
 const { dynamicAttrs } = useFormAttributes(attrs)
+const {t} = useI18n()
 
 const props = defineProps({
   label: {
