@@ -1,0 +1,47 @@
+version: '3.3'
+services:
+
+  firefly-pico:
+    hostname: pico-app
+    image: ghcr.io/juliendu11/firefly-pico:1.0.0
+    container_name: firefly_pico
+    restart: always
+    ports:
+      - 6976:80
+    environment:
+      - FIREFLY_URL=pico-api.julien-dacosta.dev
+      - DB_CONNECTION=pgsql
+      - DB_HOST=ep-misty-lab-a2zvwt1w.eu-central-1.aws.neon.tech
+      - DB_PORT=5432
+      - DB_DATABASE=pico
+      - DB_USERNAME=firefly_owner
+      - DB_PASSWORD=${PICO_DB_PASSWORD}
+      - TZ=Europe/Paris
+    networks:
+      firefly:
+
+  firefly-app:
+    hostname: firefly-app
+    image: fireflyiii/core:latest
+    container_name: firefly_iii
+    restart: always
+    ports:
+      - 6041:8080
+    environment:
+      - FIREFLY_III_LAYOUT=v1
+      - APP_URL=pico-api.julien-dacosta.dev
+      - APP_KEY=${FIREFLY_APP_KEY}
+      - TRUSTED_PROXIES=**
+      - DB_CONNECTION=pgsql
+      - DB_HOST=ep-misty-lab-a2zvwt1w.eu-central-1.aws.neon.tech
+      - DB_PORT=5432
+      - DB_DATABASE=firefly
+      - DB_USERNAME=firefly_owner
+      - DB_PASSWORD=${FIREFLY_DB_PASSWORD}
+    volumes:
+      - ./root/firefly-upload:/var/www/html/storage/upload
+    networks:
+      firefly:
+
+networks:
+  firefly:
